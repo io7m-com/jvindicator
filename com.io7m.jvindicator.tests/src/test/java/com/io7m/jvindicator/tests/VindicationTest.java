@@ -142,6 +142,56 @@ public final class VindicationTest
   }
 
   /**
+   * Required parameters are required.
+   *
+   * @throws Exception On errors
+   */
+
+  @Test
+  public void testRequiredParameterCheckEmpty()
+    throws Exception
+  {
+    final var v =
+      Vindication.start();
+    final var p0 =
+      v.addRequiredParameter("p0", value -> value);
+
+    final var ex =
+      assertThrows(Exception.class, () -> {
+        v.check(Map.ofEntries(
+          Map.entry("p0", new String[0])
+        ));
+      });
+
+    assertTrue(ex.getMessage().contains("p0"));
+  }
+
+  /**
+   * Required parameters are required.
+   *
+   * @throws Exception On errors
+   */
+
+  @Test
+  public void testRequiredParameterCheckNull()
+    throws Exception
+  {
+    final var v =
+      Vindication.start();
+    final var p0 =
+      v.addRequiredParameter("p0", value -> value);
+
+    final var ex =
+      assertThrows(Exception.class, () -> {
+        v.check(Map.ofEntries(
+          Map.entry("p0", new String[] { null })
+        ));
+      });
+
+    assertTrue(ex.getMessage().contains("p0"));
+  }
+
+  /**
    * Required parameters are required to parse.
    *
    * @throws Exception On errors

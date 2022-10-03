@@ -32,6 +32,9 @@ import java.util.function.Function;
 
 public final class Vindication
 {
+
+  public static final String ERROR_MISSING = "The parameter is required but was missing.";
+
   private Vindication()
   {
 
@@ -373,16 +376,15 @@ public final class Vindication
 
       final var exceptions = new ArrayList<Throwable>();
       final var errors = new HashMap<String, String>();
+
+      PARAMETER_LOOP:
       for (final var parameter : this.parameters.values()) {
         parameter.checked = true;
 
         final var inputValues = input.get(parameter.name);
         if (inputValues == null) {
           if (!parameter.isOptional) {
-            errors.put(
-              parameter.name,
-              "The parameter is required but was missing."
-            );
+            errors.put(parameter.name, ERROR_MISSING);
           }
           parameter.parsed = Optional.empty();
           continue;
@@ -390,12 +392,19 @@ public final class Vindication
 
         for (final var value : inputValues) {
           try {
-            parameter.parsed = parameter.check.check(value);
+            parameter.parsed = parameter.check.check(
+              Objects.requireNonNull(value, "value")
+            );
+            continue PARAMETER_LOOP;
           } catch (final Exception e) {
             exceptions.add(e);
             errors.put(parameter.name, e.getMessage());
+            continue PARAMETER_LOOP;
           }
         }
+
+        errors.put(parameter.name, ERROR_MISSING);
+        parameter.parsed = Optional.empty();
       }
 
       if (!errors.isEmpty()) {
