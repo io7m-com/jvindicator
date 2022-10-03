@@ -32,8 +32,8 @@ import java.util.function.Function;
 
 public final class Vindication
 {
-
-  public static final String ERROR_MISSING = "The parameter is required but was missing.";
+  private static final String ERROR_MISSING =
+    "The parameter is required but was missing.";
 
   private Vindication()
   {
