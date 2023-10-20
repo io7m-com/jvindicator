@@ -16,8 +16,10 @@
 
 package com.io7m.jvindicator.core;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * The vindication builder. Parameters must be added and then all parameters
@@ -75,6 +77,26 @@ public interface VindicationBuilderType<E extends Exception>
    * @throws E On errors
    */
 
-  void check(Map<String, String[]> parameters)
+  default void checkArrayTyped(
+    final Map<String, String[]> parameters)
+    throws E
+  {
+    this.check(
+      parameters.entrySet()
+        .stream()
+        .map(e -> Map.entry(e.getKey(), List.of(e.getValue())))
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue))
+    );
+  }
+
+  /**
+   * Check the given parameters.
+   *
+   * @param parameters The parameters
+   *
+   * @throws E On errors
+   */
+
+  void check(Map<String, List<String>> parameters)
     throws E;
 }

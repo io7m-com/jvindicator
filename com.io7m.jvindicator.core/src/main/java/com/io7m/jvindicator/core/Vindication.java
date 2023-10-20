@@ -20,6 +20,7 @@ import java.math.BigInteger;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -369,7 +370,7 @@ public final class Vindication
 
     @Override
     public void check(
-      final Map<String, String[]> input)
+      final Map<String, List<String>> input)
       throws E
     {
       Objects.requireNonNull(input, "input");
