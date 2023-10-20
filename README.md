@@ -7,11 +7,13 @@ jvindicator
 
 ![jvindicator](./src/site/resources/jvindicator.jpg?raw=true)
 
-| JVM             | Platform | Status |
-|-----------------|----------|--------|
-| OpenJDK LTS     | Linux    | [![Build (OpenJDK LTS, Linux)](https://img.shields.io/github/workflow/status/io7m/jvindicator/main-openjdk_lts-linux)](https://github.com/io7m/jvindicator/actions?query=workflow%3Amain-openjdk_lts-linux) |
-| OpenJDK Current | Linux    | [![Build (OpenJDK Current, Linux)](https://img.shields.io/github/workflow/status/io7m/jvindicator/main-openjdk_current-linux)](https://github.com/io7m/jvindicator/actions?query=workflow%3Amain-openjdk_current-linux)
-| OpenJDK Current | Windows  | [![Build (OpenJDK Current, Windows)](https://img.shields.io/github/workflow/status/io7m/jvindicator/main-openjdk_current-windows)](https://github.com/io7m/jvindicator/actions?query=workflow%3Amain-openjdk_current-windows)
+| JVM | Platform | Status |
+|-----|----------|--------|
+| OpenJDK (Temurin) Current | Linux | [![Build (OpenJDK (Temurin) Current, Linux)](https://img.shields.io/github/actions/workflow/status/io7m/jvindicator/main.linux.temurin.current.yml)](https://github.com/io7m/jvindicator/actions?query=workflow%3Amain.linux.temurin.current)|
+| OpenJDK (Temurin) LTS | Linux | [![Build (OpenJDK (Temurin) LTS, Linux)](https://img.shields.io/github/actions/workflow/status/io7m/jvindicator/main.linux.temurin.lts.yml)](https://github.com/io7m/jvindicator/actions?query=workflow%3Amain.linux.temurin.lts)|
+| OpenJDK (Temurin) Current | Windows | [![Build (OpenJDK (Temurin) Current, Windows)](https://img.shields.io/github/actions/workflow/status/io7m/jvindicator/main.windows.temurin.current.yml)](https://github.com/io7m/jvindicator/actions?query=workflow%3Amain.windows.temurin.current)|
+| OpenJDK (Temurin) LTS | Windows | [![Build (OpenJDK (Temurin) LTS, Windows)](https://img.shields.io/github/actions/workflow/status/io7m/jvindicator/main.windows.temurin.lts.yml)](https://github.com/io7m/jvindicator/actions?query=workflow%3Amain.windows.temurin.lts)|
+
 
 ## Usage
 

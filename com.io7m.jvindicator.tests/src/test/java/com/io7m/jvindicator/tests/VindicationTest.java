@@ -69,7 +69,7 @@ public final class VindicationTest
     final var p1 =
       v.addRequiredParameter("p1", Integer::parseUnsignedInt);
 
-    v.check(Map.ofEntries(
+    v.checkArrayTyped(Map.ofEntries(
       Map.entry("p0", new String[]{"98da4b91-76b7-42ef-ba03-3bed60fd73db"}),
       Map.entry("p1", new String[]{"23"})
     ));
@@ -101,7 +101,7 @@ public final class VindicationTest
     final var p1 =
       v.addRequiredParameter("p1", Integer::parseUnsignedInt);
 
-    v.check(Map.ofEntries(
+    v.checkArrayTyped(Map.ofEntries(
       Map.entry("p0", new String[]{"98da4b91-76b7-42ef-ba03-3bed60fd73db"}),
       Map.entry("p1", new String[]{"23"})
     ));
@@ -135,7 +135,7 @@ public final class VindicationTest
 
     final var ex =
       assertThrows(Exception.class, () -> {
-        v.check(Map.ofEntries());
+        v.checkArrayTyped(Map.ofEntries());
       });
 
     assertTrue(ex.getMessage().contains("p0"));
@@ -158,7 +158,7 @@ public final class VindicationTest
 
     final var ex =
       assertThrows(Exception.class, () -> {
-        v.check(Map.ofEntries(
+        v.checkArrayTyped(Map.ofEntries(
           Map.entry("p0", new String[0])
         ));
       });
@@ -183,8 +183,8 @@ public final class VindicationTest
 
     final var ex =
       assertThrows(Exception.class, () -> {
-        v.check(Map.ofEntries(
-          Map.entry("p0", new String[] { null })
+        v.checkArrayTyped(Map.ofEntries(
+          Map.entry("p0", new String[] { })
         ));
       });
 
@@ -210,7 +210,7 @@ public final class VindicationTest
 
     final var ex =
       assertThrows(Exception.class, () -> {
-        v.check(Map.ofEntries(
+        v.checkArrayTyped(Map.ofEntries(
           Map.entry("p0", new String[]{"23"}),
           Map.entry("p1", new String[]{"98da4b91-76b7-42ef-ba03-3bed60fd73db"})
         ));
@@ -243,7 +243,7 @@ public final class VindicationTest
     final var p4 =
       v.addRequiredParameter("i0", Vindication.integerBig());
 
-    v.check(Map.ofEntries(
+    v.checkArrayTyped(Map.ofEntries(
       Map.entry("u0", new String[]{"23"}),
       Map.entry("u1", new String[]{"24"}),
       Map.entry("s0", new String[]{"-23"}),
@@ -283,7 +283,7 @@ public final class VindicationTest
 
     final var ex =
       assertThrows(Exception.class, () -> {
-        v.check(Map.ofEntries(
+        v.checkArrayTyped(Map.ofEntries(
           Map.entry("u0", new String[]{"x"}),
           Map.entry("u1", new String[]{"y"}),
           Map.entry("s0", new String[]{"z"}),
@@ -316,7 +316,7 @@ public final class VindicationTest
     final var p1 =
       v.addRequiredParameter("u1", Vindication.booleans());
 
-    v.check(Map.ofEntries(
+    v.checkArrayTyped(Map.ofEntries(
       Map.entry("u0", new String[]{"true"}),
       Map.entry("u1", new String[]{"false"})
     ));
@@ -344,7 +344,7 @@ public final class VindicationTest
 
     final var ex =
       assertThrows(Exception.class, () -> {
-        v.check(Map.ofEntries(
+        v.checkArrayTyped(Map.ofEntries(
           Map.entry("u0", new String[]{"x"}),
           Map.entry("u1", new String[]{"y"})
         ));
@@ -369,7 +369,7 @@ public final class VindicationTest
     final var p0 =
       v.addRequiredParameter("u0", Vindication.strings());
 
-    v.check(Map.ofEntries(
+    v.checkArrayTyped(Map.ofEntries(
       Map.entry("u0", new String[]{"true"})
     ));
 
@@ -391,7 +391,7 @@ public final class VindicationTest
     final var p0 =
       v.addRequiredParameter("u0", Vindication.doubles());
 
-    v.check(Map.ofEntries(
+    v.checkArrayTyped(Map.ofEntries(
       Map.entry("u0", new String[]{"23"})
     ));
 
@@ -415,7 +415,7 @@ public final class VindicationTest
 
     final var ex =
       assertThrows(Exception.class, () -> {
-        v.check(Map.ofEntries(
+        v.checkArrayTyped(Map.ofEntries(
           Map.entry("u0", new String[]{"x"})
         ));
       });
@@ -439,7 +439,7 @@ public final class VindicationTest
     final var p0 =
       v.addRequiredParameter("u0", Vindication.offsetDateTimes());
 
-    v.check(Map.ofEntries(
+    v.checkArrayTyped(Map.ofEntries(
       Map.entry("u0", new String[]{"2000-01-01T00:00:00+00:00"})
     ));
 
@@ -463,7 +463,7 @@ public final class VindicationTest
 
     final var ex =
       assertThrows(Exception.class, () -> {
-        v.check(Map.ofEntries(
+        v.checkArrayTyped(Map.ofEntries(
           Map.entry("u0", new String[]{"x"})
         ));
       });
@@ -509,7 +509,7 @@ public final class VindicationTest
     final var p0 =
       v.addRequiredParameter("u0", Vindication.uuids());
 
-    v.check(Map.ofEntries(
+    v.checkArrayTyped(Map.ofEntries(
       Map.entry("u0", new String[]{"98da4b91-76b7-42ef-ba03-3bed60fd73db"})
     ));
 
@@ -535,7 +535,7 @@ public final class VindicationTest
 
     final var ex =
       assertThrows(Exception.class, () -> {
-        v.check(Map.ofEntries(
+        v.checkArrayTyped(Map.ofEntries(
           Map.entry("u0", new String[]{"x"})
         ));
       });
@@ -569,7 +569,7 @@ public final class VindicationTest
 
     final var ex =
       assertThrows(Exception.class, () -> {
-        v.check(Map.ofEntries(
+        v.checkArrayTyped(Map.ofEntries(
           Map.entry("u0", new String[]{"x"}),
           Map.entry("u1", new String[]{"y"}),
           Map.entry("s0", new String[]{"z"}),
@@ -608,7 +608,7 @@ public final class VindicationTest
     final var p4 =
       v.addOptionalParameter("i0", Vindication.integerBig());
 
-    v.check(Map.ofEntries(
+    v.checkArrayTyped(Map.ofEntries(
 
     ));
 

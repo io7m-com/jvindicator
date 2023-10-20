@@ -1,3 +1,5 @@
+
+
 ## Usage
 
 Use the `Vindicator` class to build a validator, and then call `check()`. After
