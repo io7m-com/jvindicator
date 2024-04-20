@@ -28,7 +28,7 @@
   <properties>
     <io7m.api.previousVersion>0.0.3-SNAPSHOT</io7m.api.previousVersion>
     <io7m.java.targetJavaVersion>21</io7m.java.targetJavaVersion>
-    <logback.version>1.4.14</logback.version>
+    <logback.version>1.5.6</logback.version>
     <slf4j.version>2.0.10</slf4j.version>
   </properties>
 
