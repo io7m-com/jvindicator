@@ -17,7 +17,7 @@ jvindicator
 
 ## jvindicator
 
-Trivial parameter validation functions intended for use in HTTP server
+Trivial parameter validation functions intended for use in HTTP servlet
 applications.
 
 ### Features
