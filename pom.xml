@@ -33,7 +33,7 @@
     <!-- Third-party dependencies. -->
     <logback.version>1.5.19</logback.version>
     <slf4j.version>2.0.17</slf4j.version>
-    <org.junit.version>5.13.4</org.junit.version>
+    <org.junit.version>5.14.0</org.junit.version>
   </properties>
 
   <licenses>
